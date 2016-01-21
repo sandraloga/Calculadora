@@ -44,9 +44,8 @@ public class Calculadora
     }
     public void sumValues()
     {
-        int num;
+       
         int cont;
-        num=0;
         cont=1;
         int resul;
         resul=0;
@@ -56,5 +55,21 @@ public class Calculadora
          cont=cont+1;
         }
         System.out.println("La suma de los umeros comrendidos entre 0 y 10(incluidos) es: "+resul);
+    }
+    public void sumValuesInterval(int a, int b)
+    {
+     int resul;
+     resul = 0;
+     int rango;
+     rango=b+1;
+     int cont;
+     cont=a;
+     
+        while (cont<(b+1))
+        {
+        resul=resul+cont;
+        cont++;
+        }
+         System.out.println("La suma de los umeros comrendidos entre " + a + " y " +b + " es : "+resul);
     }
 }
