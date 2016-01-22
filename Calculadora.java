@@ -20,10 +20,7 @@ public class Calculadora
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Metodo que suma los numeros multiplos de 5 entre 10 y 95 (No incluidos)
      */
     public void multipesOfFive()
     {
@@ -33,43 +30,125 @@ public class Calculadora
         cont=3;
         int resul;
         resul=10;
-       while (resul <90)
-       {   
+        while (resul <90)
+        {   
             resul=cont*cinco;
             System.out.println(resul);
             cont=cont+1;
-          
+
         }
-        
+
     }
+    /**
+     * Metodo que suma los valores comprendidos entre 0 y 10 (incluidos)
+     */
     public void sumValues()
     {
-       
+
         int cont;
         cont=1;
         int resul;
         resul=0;
         while (cont<11)
         {
-         resul=resul+cont;
-         cont=cont+1;
+            resul=resul+cont;
+            cont=cont+1;
         }
-        System.out.println("La suma de los umeros comrendidos entre 0 y 10(incluidos) es: "+resul);
+        System.out.println("La suma de los numeros comprendidos entre 0 y 10(incluidos) es: "+resul);
     }
-    public void sumValuesInterval(int a, int b)
+    /**
+     * metodo que suma lo valores que hay entre dos numeros dados (ellos inncluidos),
+     * comprueba que que sean positivos y si a es mayor que b , intercambia sus valores
+     */
+    public int sumValuesInterval(int a, int b)
     {
-     int resul;
-     resul = 0;
-     int rango;
-     rango=b+1;
-     int cont;
-     cont=a;
-     
-        while (cont<(b+1))
+        int resul;
+        //resul = 0;
+        //int aux;
+       //aux=0;
+        //int cont;
+        //cont=a;
+        
+        //Faltaria la comprobaciom del numero valido y return-1
+        if (a >=0 && b>=0)
         {
-        resul=resul+cont;
-        cont++;
+            if (a>b)
+            {
+                int aux =a;
+                a= b;
+                b = aux;
+            }
+            resul=a;
+            while (a<b)
+            {
+                a++;
+                resul=resul+a;
+            }
+           
         }
-         System.out.println("La suma de los umeros comrendidos entre " + a + " y " +b + " es : "+resul);
+        else
+        {
+               System.out.println("Debe meter un numero positivo!!!");
+               resul= -1;
+        }
+       return resul;
     }
+    
+    /**
+     * realizar multiplicaciones entre enteros positivo
+     */
+    
+    public int multiplica (int a, int b)
+    
+    {
+           int resul=0;
+           int cont=1;
+           
+           if (a<=0 && b>=0)
+           {
+               resul=-1;
+               System.out.print ("Error");
+            }
+            else
+            {
+                while (cont!=b+1)
+                {
+                resul=resul+a;
+                cont++;
+                }
+           }
+           return resul;
+    }
+    /**
+     * Metodo que devuelva verdadero si el parámetro `n` es primo o falso en caso contrario.
+     * Se comprueba que el parámetro es mayor que 1; en caso contrario se informa por pantalla del error y se devuelve `false`
+     */
+    public boolean isPrime (int num)
+    {
+       
+        int divisor;
+        divisor = 2;
+        boolean primo;
+        primo=true;
+        if (num<=1)
+        {
+           
+
+           primo= false;
+           System.out.println ("ERROR!!!!!!! El numero debe ser mayor de 1");
+        }
+        else {
+            while (divisor<=num-1 && primo==true)
+            {
+                if (num % divisor == 0)
+                {
+                   primo = false;
+                }
+                divisor++;
+            }
+        }
+        
+        return primo;
+    }
+    
 }
